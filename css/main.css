@@ -1,290 +1,692 @@
-/*! HTML5 Boilerplate v7.0.1 | MIT License | https://html5boilerplate.com/ */
-
-/* main.css 1.0.0 | MIT License | https://github.com/h5bp/main.css#readme */
 /*
- * What follows is the result of much research on cross-browser styling.
- * Credit left inline and big thanks to Nicolas Gallagher, Jonathan Neal,
- * Kroc Camen, and the H5BP dev community and team.
- */
-
- 
-/* ==========================================================================
-   Base styles: opinionated defaults
-   ========================================================================== */
-
-   html {
-    color: #222;
-    font-size: 1em;
-    line-height: 1.4;
+$breakpoint-xs: 767px;
+$breakpoint-sm: 991px;
+$breakpoint-ipad: 1024px;
+$breakpoint-ipadpro-max: 1366px;
+*/
+/*.transition(@transition: all, @duration: .3s, @anim: ease, @delay: 0s, @preLoad: false) {
+  transition: @transition @duration @anim @delay;
+  & when (@preLoad = true) {
+    will-change: @transition;
+  }
+}*/
+/*
+@breakpoint-extra-small: 576px;
+@breakpoint-small: 767px;
+@breakpoint-med-small: 991px;
+@breakpoint-med: 1024px;
+*/
+@font-face {
+  font-family: 'venturi-bold';
+  src: url('../fonts/venturissansadflt-bold.eot');
+  src: url('../fonts/venturissansadflt-bold.eot?#iefix') format('embedded-opentype'), url('../fonts/venturissansadflt-bold.woff') format('woff'), url('../fonts/venturissansadflt-bold.ttf') format('truetype'), url('../fonts/venturissansadflt-bold.svg#venturi-bold') format('svg');
+  font-weight: normal;
+  font-style: normal;
 }
-
-/*
- * Remove text-shadow in selection highlight:
- * https://twitter.com/miketaylr/status/12228805301
- *
- * Vendor-prefixed and regular ::selection selectors cannot be combined:
- * https://stackoverflow.com/a/16982510/7133471
- *
- * Customize the background color to match your design.
- */
-
+@font-face {
+  font-family: 'venturi-regular';
+  src: url('../fonts/venturissansadf-regular.eot');
+  src: url('../fonts/venturissansadf-regular.eot?#iefix') format('embedded-opentype'), url('../fonts/venturissansadf-regular.woff') format('woff'), url('../fonts/venturissansadf-regular.ttf') format('truetype'), url('../fonts/venturissansadf-regular.svg#venturi-regular') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'venturi-light';
+  src: url('../fonts/venturissansadflt-regular.eot');
+  src: url('../fonts/venturissansadflt-regular.eot?#iefix') format('embedded-opentype'), url('../fonts/venturissansadflt-regular.woff') format('woff'), url('../fonts/venturissansadflt-regular.ttf') format('truetype'), url('../fonts/venturissansadflt-regular.svg#venturi-light') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'swanse-regular';
+  src: url('../fonts/swanse.eot');
+  src: url('../fonts/swanse.eot?#iefix') format('embedded-opentype'), url('../fonts/swanse.woff') format('woff'), url('../fonts/swanse.ttf') format('truetype'), url('../fonts/swanse.svg#swanse-regular') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'icomoon';
+  src: url('../fonts/icomoon.eot?vx2yjj');
+  src: url('../fonts/icomoon.eot?vx2yjj#iefix') format('embedded-opentype'), url('../fonts/icomoon.ttf?vx2yjj') format('truetype'), url('../fonts/icomoon.woff?vx2yjj') format('woff'), url('../fonts/icomoon.svg?vx2yjj#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+[class^="icon-"],
+[class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icomoon' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.icon-yt:before {
+  content: "\e902";
+}
+.icon-fb:before {
+  content: "\e903";
+}
+.icon-arrow-down:before {
+  content: "\e901";
+}
+.icon-play:before {
+  content: "\e900";
+}
+html,
+body {
+  color: #141414;
+  font-size: 14px;
+  scroll-behavior: smooth;
+  margin: 0;
+  padding: 0;
+}
+@media only screen and (max-width: 576px) {
+  html,
+  body {
+    font-size: 12px;
+  }
+}
+body {
+  font-family: 'swanse-regular', Arial, Helvetica, sans-serif;
+}
+::-moz-selection {
+  color: #3486cf;
+  background: #225b8e;
+}
 ::selection {
-    background: #b3d4fc;
-    text-shadow: none;
+  color: #3486cf;
+  background: #225b8e;
 }
-
-/*
- * A better looking default horizontal rule
- */
-
-hr {
-    display: block;
-    height: 1px;
-    border: 0;
-    border-top: 1px solid #ccc;
-    margin: 1em 0;
-    padding: 0;
+strong,
+b {
+  font-family: 'venturi-bold', Arial, Helvetica, sans-serif;
+  font-weight: 300;
 }
-
-/*
- * Remove the gap between audio, canvas, iframes,
- * images, videos and the bottom of their containers:
- * https://github.com/h5bp/html5-boilerplate/issues/440
- */
-
-audio,
-canvas,
-iframe,
-img,
-svg,
-video {
-    vertical-align: middle;
+p {
+  color: #000000;
+  font-size: 14px;
+  font-size: 1rem;
+  line-height: 1.5;
 }
-
-/*
- * Remove default fieldset styles.
- */
-
-fieldset {
-    border: 0;
-    margin: 0;
-    padding: 0;
+small {
+  font-size: 12px;
+  font-size: 0.8571428571428571rem;
 }
-
-/*
- * Allow only vertical resizing of textareas.
- */
-
-textarea {
-    resize: vertical;
+a,
+a:hover,
+a:focus {
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  -ms-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+  outline: none;
+  text-decoration: none;
 }
-
-/* ==========================================================================
-   Browser Upgrade Prompt
-   ========================================================================== */
-
-.browserupgrade {
-    margin: 0.2em 0;
-    background: #ccc;
-    color: #000;
-    padding: 0.2em 0;
+ul {
+  list-style: none;
+  padding: 0;
 }
-
-
-
-
- /* ==========================================================================
-   Author's custom styles
-   ========================================================================== */
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
- /* ==========================================================================
-   Helper classes
-   ========================================================================== */
-
-/*
- * Hide visually and from screen readers
- */
-
- .hidden {
+h1,
+.h1,
+h2,
+.h2,
+h3,
+.h3,
+h4,
+.h4,
+h5,
+.h5,
+h6,
+.h6 {
+  margin: 0;
+  font-weight: normal;
+}
+h1,
+.h1 {
+  font-size: 55pxpx;
+  font-size: 3.9285714285714284pxrem;
+}
+@media only screen and (max-width: 576px) {
+  h1,
+  .h1 {
+    font-size: 30pxpx;
+    font-size: 2.142857142857143pxrem;
+  }
+}
+h2,
+.h2 {
+  font-size: 48pxpx;
+  font-size: 3.4285714285714284pxrem;
+}
+@media only screen and (max-width: 576px) {
+  h2,
+  .h2 {
+    font-size: 27pxpx;
+    font-size: 1.9285714285714286pxrem;
+  }
+}
+h3,
+.h3 {
+  font-size: 24pxpx;
+  font-size: 1.7142857142857142pxrem;
+}
+@media only screen and (max-width: 576px) {
+  h3,
+  .h3 {
+    font-size: 18pxpx;
+    font-size: 1.2857142857142858pxrem;
+  }
+}
+.small {
+  font-size: 50%;
+  font-weight: 300;
+}
+.font-fancy {
+  font-family: 'venturi-bold', Arial, Helvetica, sans-serif;
+}
+.font-regular {
+  font-family: 'swanse-regular', Arial, Helvetica, sans-serif;
+}
+.font-bold {
+  font-family: 'venturi-bold', Arial, Helvetica, sans-serif;
+}
+.font-light {
+  font-family: 'venturi-regular', Arial, Helvetica, sans-serif;
+}
+.font-medium {
+  font-family: 'venturi-regular', Arial, Helvetica, sans-serif;
+}
+.font-black {
+  font-family: 'venturi-bold', Arial, Helvetica, sans-serif;
+}
+.font-lowercase {
+  text-transform: lowercase !important;
+}
+.font-uppercase {
+  text-transform: uppercase !important;
+}
+.font-capitalize {
+  text-transform: capitalize !important;
+}
+.font-transform-none {
+  text-transform: none !important;
+}
+.accent-fgcolor-white {
+  color: #FFFFFF;
+}
+.accent-fgcolor-white p {
+  color: #FFFFFF;
+}
+.accent-fgcolor-black {
+  color: #000000;
+}
+.accent-fgcolor-black p {
+  color: #000000;
+}
+.accent-bgcolor-white {
+  background-color: #FFFFFF;
+}
+.accent-bgcolor-black {
+  background-color: #000000;
+}
+/*.container {
+	max-width: 1224px;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}*/
+.section {
+  position: relative;
+}
+.section__wrapper {
+  position: relative;
+  width: 100%;
+}
+.section--with-bg-1 {
+  background-image: url("../img/app/bg/banner-bg.jpg");
+  background-position: center center;
+  background-size: cover;
+}
+.section--with-bg-dots {
+  background-image: url("../img/app/pattern/pattern.png");
+  background-position: center center;
+  background-size: 28px 28px;
+}
+.section--with-bg-dots-2 {
+  background-image: url("../img/app/pattern/pattern-2.png");
+  background-position: center center;
+  background-size: 28px 28px;
+}
+.main__cont {
+  position: relative;
+  overflow: hidden;
+}
+.btn {
+  display: inline-block;
+}
+.hidden {
   display: none !important;
 }
-
-/*
-* Hide only visually, but have it available for screen readers:
-* https://snook.ca/archives/html_and_css/hiding-content-for-accessibility
-*
-* 1. For long content, line feeds are not interpreted as spaces and small width
-*    causes content to wrap 1 word per line:
-*    https://medium.com/@jessebeach/beware-smushed-off-screen-accessible-text-5952a4c2cbfe
-*/
-
-.visuallyhidden {
-  border: 0;
-  clip: rect(0 0 0 0);
-  height: 1px;
-  margin: -1px;
-  overflow: hidden;
-  padding: 0;
-  position: absolute;
-  width: 1px;
-  white-space: nowrap; /* 1 */
-}
-
-/*
-* Extends the .visuallyhidden class to allow the element
-* to be focusable when navigated to via the keyboard:
-* https://www.drupal.org/node/897638
-*/
-
-.visuallyhidden.focusable:active,
-.visuallyhidden.focusable:focus {
-  clip: auto;
+.img-responsive {
+  display: block;
+  max-width: 100%;
   height: auto;
-  margin: 0;
-  overflow: visible;
-  position: static;
-  width: auto;
-  white-space: inherit;
+  margin: 0 auto;
 }
-
-/*
-* Hide visually and from screen readers, but maintain layout
-*/
-
-.invisible {
-  visibility: hidden;
+.full-link {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  z-index: 10;
 }
-
-/*
-* Clearfix: contain floats
-*
-* For modern browsers
-* 1. The space content is one way to avoid an Opera bug when the
-*    `contenteditable` attribute is included anywhere else in the document.
-*    Otherwise it causes space to appear at the top and bottom of elements
-*    that receive the `clearfix` class.
-* 2. The use of `table` rather than `block` is only necessary if using
-*    `:before` to contain the top-margins of child elements.
-*/
-
-.clearfix:before,
-.clearfix:after {
-  content: " "; /* 1 */
-  display: table; /* 2 */
+.text--center {
+  text-align: center;
 }
-
-.clearfix:after {
+.text--left {
+  text-align: left;
+}
+.text--right {
+  text-align: right;
+}
+.float-left {
+  float: left;
+}
+.float-right {
+  float: right;
+}
+.float-none {
   clear: both;
+  float: none;
 }
-
- 
-/* ==========================================================================
-   EXAMPLE Media Queries for Responsive Design.
-   These examples override the primary ('mobile first') styles.
-   Modify as content requires.
-   ========================================================================== */
-
-   @media only screen and (min-width: 35em) {
-    /* Style adjustments for viewports that meet the condition */
+.letter-spacing .line-height-1 {
+  letter-spacing: 1 px;
 }
-
-@media print,
-       (-webkit-min-device-pixel-ratio: 1.25),
-       (min-resolution: 1.25dppx),
-       (min-resolution: 120dpi) {
-    /* Style adjustments for high resolution devices */
+.letter-spacing .line-height-2 {
+  letter-spacing: 2 px;
 }
-
- 
-/* ==========================================================================
-   Print styles.
-   Inlined to avoid the additional HTTP request:
-   https://www.phpied.com/delay-loading-your-print-css/
-   ========================================================================== */
-
-   @media print {
-    *,
-    *:before,
-    *:after {
-        background: transparent !important;
-        color: #000 !important; /* Black prints faster */
-        -webkit-box-shadow: none !important;
-        box-shadow: none !important;
-        text-shadow: none !important;
-    }
-
-    a,
-    a:visited {
-        text-decoration: underline;
-    }
-
-    a[href]:after {
-        content: " (" attr(href) ")";
-    }
-
-    abbr[title]:after {
-        content: " (" attr(title) ")";
-    }
-
-    /*
-     * Don't show links that are fragment identifiers,
-     * or use the `javascript:` pseudo protocol
-     */
-
-    a[href^="#"]:after,
-    a[href^="javascript:"]:after {
-        content: "";
-    }
-
-    pre {
-        white-space: pre-wrap !important;
-    }
-    pre,
-    blockquote {
-        border: 1px solid #999;
-        page-break-inside: avoid;
-    }
-
-    /*
-     * Printing Tables:
-     * http://css-discuss.incutio.com/wiki/Printing_Tables
-     */
-
-    thead {
-        display: table-header-group;
-    }
-
-    tr,
-    img {
-        page-break-inside: avoid;
-    }
-
-    p,
-    h2,
-    h3 {
-        orphans: 3;
-        widows: 3;
-    }
-
-    h2,
-    h3 {
-        page-break-after: avoid;
-    }
+.letter-spacing .line-height-3 {
+  letter-spacing: 3 px;
 }
-
-
+.letter-spacing .line-height-4 {
+  letter-spacing: 4 px;
+}
+.letter-spacing .line-height-5 {
+  letter-spacing: 5 px;
+}
+.line-height .line-height-1 {
+  line-height: 10 px;
+}
+.line-height .line-height-2 {
+  line-height: 20 px;
+}
+.line-height .line-height-3 {
+  line-height: 30 px;
+}
+.line-height .line-height-4 {
+  line-height: 40 px;
+}
+.line-height .line-height-5 {
+  line-height: 50 px;
+}
+/* Content flex*/
+.is-flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.is-flex-col {
+  flex-direction: column;
+}
+.is-flex-left {
+  align-items: flex-start;
+}
+.is-flex-right {
+  align-items: flex-end;
+}
+.is-flex-center {
+  align-items: center;
+  justify-content: center;
+}
+.is-flex-top {
+  justify-content: flex-start;
+}
+.is-flex-bottom {
+  justify-content: flex-end;
+}
+.is-flex-space-between {
+  justify-content: space-between;
+}
+.blk-search {
+  text-align: center;
+}
+.blk-header {
+  width: 100%;
+}
+.blk-header li {
+  display: inline-block;
+}
+.blk-text {
+  max-width: 960px;
+  margin: 0 auto;
+}
+.blk-text__wrapper {
+  padding: 70px 0;
+}
+.blk-text--align-center {
+  text-align: center;
+}
+.blk-text__title {
+  margin-bottom: 68px;
+}
+.blk-text h1 {
+  font-size: 30px;
+  font-size: 2.142857142857143rem;
+  color: #ff9b00;
+  font-family: 'venturi-bold', Arial, Helvetica, sans-serif;
+}
+.blk-text h2 {
+  display: inline-block;
+  color: #add8ff;
+  font-family: 'venturi-bold', Arial, Helvetica, sans-serif;
+  font-size: 24px;
+  font-size: 1.7142857142857142rem;
+  border-bottom: 2px solid #add8ff;
+}
+.blk-text p {
+  color: #FFFFFF;
+  font-size: 18px;
+  font-size: 1.2857142857142858rem;
+  margin: 0 0 27px 0;
+  display: block;
+  line-height: 21px;
+  line-height: 1.5rem;
+}
+.blk-text p:last-child {
+  margin-bottom: 0;
+}
+@media only screen and (max-width: 576px) {
+  .blk-text h2 {
+    border-bottom: 0;
+    text-decoration: underline;
+  }
+}
+.blk-title {
+  text-align: center;
+}
+.blk-title__wrapper {
+  padding: 30px 0 40px 0;
+}
+.blk-title h1 {
+  font-size: 30px;
+  font-size: 2.142857142857143rem;
+  line-height: 30px;
+  line-height: 2.142857142857143rem;
+  color: #ff9b00;
+  font-family: 'venturi-bold', Arial, Helvetica, sans-serif;
+  margin-bottom: 22px;
+}
+.blk-title h2 {
+  display: inline-block;
+  color: #FFFFFF;
+  font-family: 'venturi-bold', Arial, Helvetica, sans-serif;
+  font-size: 24px;
+  font-size: 1.7142857142857142rem;
+  line-height: 24px;
+  line-height: 1.7142857142857142rem;
+}
+.blk-video {
+  position: relative;
+}
+.blk-video__thumbnail {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  left: 0;
+  height: 100%;
+  z-index: 2;
+  background-size: cover;
+  background-position: center center;
+}
+.blk-video__play {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.blk-video__play [class^="icon-"],
+.blk-video__play [class*=" icon-"] {
+  color: #FFFFFF;
+  font-size: 84px;
+}
+.blk-featperson {
+  color: #ececec;
+  z-index: 2;
+  position: relative;
+}
+.blk-featperson a,
+.blk-featperson p {
+  color: #ececec;
+}
+.blk-featperson__wrapper {
+  background: #0e0d12;
+  overflow: hidden;
+  position: relative;
+}
+.blk-featperson__wrapper:after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 100vh;
+  position: absolute;
+  z-index: 1;
+  bottom: 0;
+  background: #0e0d12;
+  background: linear-gradient(180deg, rgba(14, 13, 18, 0) 0%, #0e0d12 90%);
+}
+.blk-featperson__image {
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  width: 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center -520px;
+}
+.blk-featperson__image img {
+  margin: 0 auto;
+  display: block;
+  top: -490px;
+  left: 0;
+  position: relative;
+  height: 2260px;
+  opacity: 1;
+}
+@media only screen and (max-width: 992px) {
+  .blk-featperson__image img {
+    left: -40%;
+  }
+}
+@media only screen and (max-width: 576px) {
+  .blk-featperson__image img {
+    left: -470px;
+  }
+}
+.blk-featperson__title > div {
+  height: 100vh;
+}
+.blk-featperson__title span {
+  display: block;
+}
+.blk-featperson__title span:last-child {
+  margin-top: 40px;
+}
+.blk-featperson__title .author {
+  opacity: 0.5;
+  font-size: 30px;
+  font-size: 2.142857142857143rem;
+  line-height: 25px;
+  line-height: 1.7857142857142858rem;
+  font-family: 'venturi-bold', Arial, Helvetica, sans-serif;
+}
+.blk-featperson__title .title {
+  font-size: 75px;
+  font-size: 5.357142857142857rem;
+  line-height: 65px;
+  line-height: 4.642857142857143rem;
+  font-family: 'venturi-bold', Arial, Helvetica, sans-serif;
+}
+.blk-featperson__title h1 {
+  top: 50%;
+  left: 50%;
+  position: relative;
+  transform: translate(-50%, -50%);
+}
+.blk-featperson__title h1:after {
+  border-bottom: 2px solid #ececec;
+  content: "";
+  position: relative;
+  display: block;
+  width: 100%;
+  max-width: 270px;
+  margin-top: 50px;
+}
+.blk-featperson__seperator {
+  margin-top: -60px;
+  text-align: center;
+}
+.blk-featperson__seperator a {
+  display: block;
+  margin-bottom: 30px;
+  font-size: 12px;
+  font-size: 0.8571428571428571rem;
+}
+.blk-featperson__seperator .seperator {
+  border-bottom: 1px solid #ececec;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 200%;
+  opacity: 0.5;
+}
+.blk-featperson__seperator [class^="icon-"],
+.blk-featperson__seperator [class*=" icon-"] {
+  display: block;
+  margin-top: 5px;
+}
+.blk-featperson__text {
+  padding: 75px 0 160px 0;
+}
+.blk-featperson__text > div {
+  max-width: 550px;
+  margin: 0 auto;
+}
+.blk-featperson__text p {
+  font-size: 18px;
+  font-size: 1.2857142857142858rem;
+  line-height: 26px;
+  line-height: 1.8571428571428572rem;
+  margin-bottom: 30px;
+}
+.blk-featperson__text p:last-child {
+  margin-bottom: 0;
+}
+.blk-featperson__text .letter {
+  font-size: 60px;
+  font-size: 4.285714285714286rem;
+  line-height: 60px;
+  line-height: 4.285714285714286rem;
+  margin: 0 28px 16px 0;
+  float: left;
+  font-family: 'venturi-bold', Arial, Helvetica, sans-serif;
+}
+.blk-featperson__text .letter:after {
+  content: "";
+  display: block;
+  background: #ececec;
+  width: 100%;
+  height: 1px;
+  opacity: 0.5;
+}
+.blk-featpost {
+  padding: 25px 0;
+  color: #ececec;
+  z-index: 2;
+  position: relative;
+}
+.blk-featpost a,
+.blk-featpost p {
+  color: #ececec;
+}
+.blk-featpost__wrapper {
+  background: #0e0d12;
+  overflow: hidden;
+  position: relative;
+}
+.blk-featpost__cover {
+  text-align: center;
+  padding: 20px 0;
+}
+.blk-featpost__cover h2 {
+  font-family: 'venturi-bold', Arial, Helvetica, sans-serif;
+}
+.blk-featpost__cover h2 .small {
+  font-size: 50px;
+  font-size: 3.5714285714285716rem;
+  line-height: 50px;
+  line-height: 3.5714285714285716rem;
+}
+.blk-featpost__cover h2 .title {
+  font-size: 75px;
+  font-size: 5.357142857142857rem;
+  line-height: 70px;
+  line-height: 5rem;
+}
+.blk-featpost__seperator .seperator {
+  background: #ececec;
+  height: 1px;
+  width: 100%;
+}
+.blk-social {
+  position: absolute;
+  z-index: 999;
+  left: 0;
+  top: 0;
+  width: 100%;
+  text-align: right;
+}
+.blk-social a {
+  color: #fff;
+}
+.blk-social ul {
+  padding: 35px 30px;
+  margin: 0 auto;
+  max-width: 1200px;
+}
+.blk-social li {
+  margin-bottom: 10px;
+}
+.blk-social li:last-child {
+  margin-bottom: 0;
+}
+.blk-social [class^="icon-"],
+.blk-social [class*=" icon-"] {
+  font-size: 20px;
+  font-size: 1.4285714285714286rem;
+  line-height: 20px;
+  line-height: 1.4285714285714286rem;
+}
+.blk-social .fb {
+  color: #3b5998;
+}
+.blk-social .yt {
+  color: #ff0000;
+}

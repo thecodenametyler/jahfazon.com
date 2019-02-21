@@ -29,7 +29,7 @@ function browserSyncReload(done) {
 // CSS task
 function css() {
   return gulp
-  .src(["./src/less/*.less"])
+  .src(["./less/*.less"])
     .pipe(plumber())
     .pipe(less({ outputStyle: "expanded" }))
     .pipe(gulp.dest("./css/"))
@@ -64,7 +64,7 @@ function css() {
 // Optimize Images
 function images() {
   return gulp
-    .src("./src/img/**/*")
+    .src("./img/**/*")
     .pipe(newer("./src/assets/img"))
     .pipe(
       imagemin([
@@ -91,15 +91,17 @@ function watchFiles() {
   gulp.watch("./src/less/*", css);
   gulp.watch(
     [
-      "./src/less/**/*",
-      "./src/less/*",
+      "./less/**/*",
+      "./less/*",
       //"./_includes/**/*",
       "./*.html",
+      "./html/*.html",
+      "./html/**/*.html",
       "./js/*.js"
     ],
     gulp.series(css,browserSyncReload)
   );
-  gulp.watch("./src/img/**/*", images);
+  gulp.watch("./img/**/*", images);
 }
 
 // define complex tasks

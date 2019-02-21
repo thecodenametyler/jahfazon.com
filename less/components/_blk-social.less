@@ -1,0 +1,36 @@
+@import "../config/_var.less";
+@import "../config/_mixins.less";
+@import "../config/_fonts.less";
+
+.blk-social {
+    position: absolute;
+    z-index: 999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    text-align: right;
+    a {
+        color:#fff;
+    }
+    ul {
+        padding: 35px 30px;
+        margin: 0 auto;
+        max-width: 1200px;
+    }
+    li {
+        margin-bottom: 10px;
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+    [class^="icon-"], [class*=" icon-"] {
+        .font-size(20);
+        .rem-px(line-height, 20);
+    }
+    .fb {
+        color: #3b5998; 
+    }
+    .yt {
+        color: #ff0000; 
+    }
+}
