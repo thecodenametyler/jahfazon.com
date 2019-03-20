@@ -11,22 +11,29 @@
         color: #ececec;
     }
     &__wrapper {
-        background: #0e0d12;
+        //background: @bg-accent-1;
         overflow: hidden;
         position: relative;
     }
     &__cover {
-        text-align: center;
-        padding: 20px 0;
-        h2 {
-            font-family: @venturibold;
-            .small {
-                .font-size(50);
-                .rem-px(line-height, 50);
-            }
-            .title {
-                .font-size(75);
-                .rem-px(line-height, 70);
+        position: relative;
+        margin-bottom: -26%;
+        img {
+            width: 100%;
+        }
+        &__title {
+            text-align: center;
+            padding: 20px 0;
+            h2 {
+                font-family: @venturibold;
+                .small {
+                    .font-size(50);
+                    .rem-px(line-height, 50);
+                }
+                .title {
+                    .font-size(75);
+                    .rem-px(line-height, 70);
+                }
             }
         }
     }
@@ -35,6 +42,16 @@
             background: #ececec;
             height: 1px;
             width: 100%;
+            &:before {
+                content: "";
+                display: block;
+                border-bottom: 1px solid #ececec;
+                position: absolute;
+                bottom: 0;
+                left: -100%;
+                width: 300%;
+                opacity: 0.5;
+            }
         }
     }
 }

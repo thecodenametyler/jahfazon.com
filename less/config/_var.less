@@ -1,6 +1,7 @@
 //Path
 @image: '../img/app/';
 @fontSizeStandard: 14;
+@fontSizeStandardSm: 12;
 
 //breakpoints
 @breakpoint-extra-small: 576px;
@@ -30,3 +31,34 @@ $breakpoint-ipadpro-max: 1366px;
 @colBlk: #000000;
 
 @text: #000000;
+
+@bg-accent-1: #232323;
+
+
+:root {
+    --font-primary: @venturiregular;
+    --font-primary-bold: @venturibold;
+    --font-primary-light: @venturilight;
+    --font-secondary: @swanseregular;
+
+    /* set base values */
+    --text-base-size: unit(@fontSizeStandard, px);
+    --text-scale-ratio: 1.2;
+
+    /* type scale */
+    --text-xs: calc(1rem / (var(--text-scale-ratio) * var(--text-scale-ratio)));//1 / (1.2*1.2) -> 0.695
+    --text-sm: calc(1rem / var(--text-scale-ratio));//1 / 1.2 -> 0.8
+    --text-md: calc(1rem * var(--text-scale-ratio));//1*1.2 -> 1.2
+    --text-lg: calc(1rem * var(--text-scale-ratio) * var(--text-scale-ratio));//1 / (1.2*1.2) -> 1.44
+    --text-xl: calc(1rem * var(--text-scale-ratio) * var(--text-scale-ratio) * var(--text-scale-ratio));//1 * (1.2*1.2*1.2) -> 1.728
+    --text-xxl: calc(1rem * var(--text-scale-ratio) * var(--text-scale-ratio) * var(--text-scale-ratio) * var(--text-scale-ratio));//1 * (1.2*1.2*1.2*1.2) -> 2.074
+    --text-xxxl: calc(1rem * var(--text-scale-ratio) * var(--text-scale-ratio) * var(--text-scale-ratio) * var(--text-scale-ratio) * var(--text-scale-ratio));//1 * (1.2*1.2*1.2*1.2*1.2) -> 2.48832
+}
+
+@media @extra-small {
+    :root {
+        /* set base values */
+        --text-base-size: unit(@fontSizeStandardSm, px);
+        --text-scale-ratio: 1.1.25;
+    }
+}
