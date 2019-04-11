@@ -88,7 +88,7 @@ body {
 @media only screen and (max-width: 576px) {
   html,
   body {
-    font-size: 12px;
+    font-size: 13px;
   }
 }
 body {
@@ -566,8 +566,8 @@ h3,
 .blk-featperson__seperator a {
   display: block;
   margin-bottom: 30px;
-  font-size: 12px;
-  font-size: 0.8571428571428571rem;
+  font-size: 14px;
+  font-size: 1rem;
 }
 .blk-featperson__seperator .seperator {
   border-bottom: 1px solid #ececec;
