@@ -3,4 +3,68 @@
 @import "../config/_fonts.less";
 
 .blk-footer {
+    &__wrapper {
+        background: red;
+        padding: 75px 0;
+    }
+    p {
+        color: @colWhite;
+        color: var(--color-white);
+        margin: 0;
+    }
+    a {
+        color: @colWhite;
+        color: var(--color-white);
+    }
+    .row {
+        padding-top: 14px;
+        padding-bottom: 14px;
+        border-top: 1px solid;
+        border-color: fade(@colWhite, 50%);
+        &:last-child {
+            border-bottom: 1px solid;
+            border-color: fade(@colWhite, 50%);
+        }
+    }
+    &__menu {
+        ul {
+            margin: 0;
+        }
+        a {
+            font-weight: 800;
+            letter-spacing: 1px;
+        }
+    }
+    &__sponsors {
+        border-left: 1px solid;
+        border-right: 1px solid;
+        border-color: fade(@colWhite, 50%);
+        ul {
+            margin: 0;
+            display: flex;
+            justify-content: flex-start;
+            align-content: center;
+        }
+        li {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 30px;
+            border-right: 1px solid;
+            border-color: fade(@colWhite, 50%);
+            &.no-border {
+                border: 0;
+            }
+        }
+        .col-sm-12 {
+            padding: 0;
+        }
+        &.row {
+            padding: 0;
+        }
+    }
+
+    .copyright {
+        opacity: 0.75;
+    }
 }

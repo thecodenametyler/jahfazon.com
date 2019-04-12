@@ -5,6 +5,11 @@ $breakpoint-ipad: 1024px;
 $breakpoint-ipadpro-max: 1366px;
 */
 :root {
+  /*colors*/
+  --color-white: #FFFFFF;
+  --color-black: #141414;
+  --color-bg-accent-1: #232323;
+  /*fonts*/
   --font-primary: 'venturi-regular', Arial, Helvetica, sans-serif;
   --font-primary-bold: 'venturi-bold', Arial, Helvetica, sans-serif;
   --font-primary-light: 'venturi-light', Arial, Helvetica, sans-serif;
@@ -434,6 +439,67 @@ h3, .h3 {
 .blk-header li {
   display: inline-block;
 }
+.blk-footer__wrapper {
+  background: red;
+  padding: 75px 0;
+}
+.blk-footer p {
+  color: #FFFFFF;
+  color: var(--color-white);
+  margin: 0;
+}
+.blk-footer a {
+  color: #FFFFFF;
+  color: var(--color-white);
+}
+.blk-footer .row {
+  padding-top: 14px;
+  padding-bottom: 14px;
+  border-top: 1px solid;
+  border-color: rgba(255, 255, 255, 0.5);
+}
+.blk-footer .row:last-child {
+  border-bottom: 1px solid;
+  border-color: rgba(255, 255, 255, 0.5);
+}
+.blk-footer__menu ul {
+  margin: 0;
+}
+.blk-footer__menu a {
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+.blk-footer__sponsors {
+  border-left: 1px solid;
+  border-right: 1px solid;
+  border-color: rgba(255, 255, 255, 0.5);
+}
+.blk-footer__sponsors ul {
+  margin: 0;
+  display: flex;
+  justify-content: flex-start;
+  align-content: center;
+}
+.blk-footer__sponsors li {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 30px;
+  border-right: 1px solid;
+  border-color: rgba(255, 255, 255, 0.5);
+}
+.blk-footer__sponsors li.no-border {
+  border: 0;
+}
+.blk-footer__sponsors .col-sm-12 {
+  padding: 0;
+}
+.blk-footer__sponsors.row {
+  padding: 0;
+}
+.blk-footer .copyright {
+  opacity: 0.75;
+}
 .blk-text {
   max-width: 960px;
   margin: 0 auto;
@@ -734,4 +800,32 @@ h3, .h3 {
 }
 .blk-social .yt {
   color: #ff0000;
+}
+.blk-social--inline {
+  position: relative;
+  z-index: 1;
+}
+.blk-social--inline ul {
+  padding: 0;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+.blk-social--inline li {
+  display: block;
+  margin: 0;
+  margin-right: 20px;
+}
+.blk-social--inline li:last-child {
+  margin-right: 0;
+}
+.blk-social--inline a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.blk-social--decolorize .fb,
+.blk-social--decolorize .yt {
+  color: #FFFFFF;
+  color: var(--color-white);
 }
