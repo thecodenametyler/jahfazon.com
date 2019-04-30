@@ -1,0 +1,49 @@
+@import "../config/_var.less";
+@import "../config/_mixins.less";
+@import "../config/_fonts.less";
+
+.blk-timeline {
+    
+    color: @colWhite;
+    p {
+        color: @colWhite;
+    }
+    img {
+        display: block;
+        max-width: 100%;
+        height: auto;
+        margin: 0 auto;
+    }
+    &__wrapper {
+        position: relative;
+        z-index: 2;
+    }
+    &__users {
+        text-align: center;
+        width: 65px;
+        img {
+            width: 60px;
+            border-radius: 60px;
+        }
+        h3, h4 ,h5 , h6 {
+            font-weight: 800;
+            .font-size(12);
+            .rem-px(line-height,12);
+        }
+    }
+    &__listing  {
+        display: flex;
+    }
+    &__media {
+        &__listing  {
+            > li {
+                display: flex;
+                flex-direction: row-reverse;
+                margin-bottom: 15px;
+                &:last-child {
+                    margin-bottom: 0;
+                }
+            }
+        }
+    }
+}

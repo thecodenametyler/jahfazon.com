@@ -727,8 +727,10 @@ h3, .h3 {
 .blk-featpost p {
   color: #ececec;
 }
-.blk-featpost__wrapper {
+.blk-featpost .inview-content {
   overflow: hidden;
+}
+.blk-featpost__wrapper {
   position: relative;
 }
 .blk-featpost__cover {
@@ -834,4 +836,49 @@ h3, .h3 {
 .blk-social--decolorize .yt {
   color: #FFFFFF;
   color: var(--color-white);
+}
+.blk-timeline {
+  color: #FFFFFF;
+}
+.blk-timeline p {
+  color: #FFFFFF;
+}
+.blk-timeline img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin: 0 auto;
+}
+.blk-timeline__wrapper {
+  position: relative;
+  z-index: 2;
+}
+.blk-timeline__users {
+  text-align: center;
+  width: 65px;
+}
+.blk-timeline__users img {
+  width: 60px;
+  border-radius: 60px;
+}
+.blk-timeline__users h3,
+.blk-timeline__users h4,
+.blk-timeline__users h5,
+.blk-timeline__users h6 {
+  font-weight: 800;
+  font-size: 12px;
+  font-size: 0.8571428571428571rem;
+  line-height: 12px;
+  line-height: 0.8571428571428571rem;
+}
+.blk-timeline__listing {
+  display: flex;
+}
+.blk-timeline__media__listing > li {
+  display: flex;
+  flex-direction: row-reverse;
+  margin-bottom: 15px;
+}
+.blk-timeline__media__listing > li:last-child {
+  margin-bottom: 0;
 }

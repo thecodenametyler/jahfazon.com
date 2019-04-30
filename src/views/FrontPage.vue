@@ -44,8 +44,8 @@
         </section>
       </template>
       <template v-else-if="slice.slice_type === 'timeline'">
-            <section class="blk-featpost__wrapper section-wrapper"> 
-                <div class="inview-wrapper blk-featpost">
+        <section class="blk-featpost__wrapper section-wrapper"> 
+            <div class="inview-wrapper blk-featpost">
                 <div class="blk-featpost__cover">
                     <prismic-image :field="slice.primary.timeline_featured_image"/>
                 </div>
@@ -60,7 +60,7 @@
                     </div>
                     <div class="row blk-featpost__seperator">
                         <div class="col-sm-12">
-                        <div class="seperator"></div>
+                            <div class="seperator"></div>
                         </div>
                     </div>
                     
@@ -74,13 +74,56 @@
 
                     </div>
                 </div>
-                </div>
+            </div>
         </section>
-        <ul v-for="(timeline_item, index) in timeline_items" :key="'timeline_item-' + index">
-            <li>
-                {{timeline_item}}
-            </li>
-        </ul>
+        
+        <section class="blk-timeline__wrapper section-wrapper"> 
+            <div class="inview-wrapper blk-timeline">
+                <div class="inview-content inview-full">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-7">
+                                <div class="blk-timeline__listing">
+                                    <!-- 2 ul. 1 details. 1 menu -->
+                                    <ul class="blk-timeline__media__listing">
+                                        <li v-for="(timeline_item, index) in timeline_items" :key="'timeline_item-' + index">
+                                            <div class="blk-timeline__media">
+                                                <prismic-rich-text :field="timeline_item.data.description"/>
+                                                <prismic-link :field="timeline_item.data.youtube_video_link">Click here</prismic-link>
+                                            </div>
+                                            <ul class="blk-timeline__users">
+                                                <li v-for="(people, index) in timeline_item.data.people" :key="'reference-item-' + index">
+                                                    <prismic-image :field="people.image"/>
+                                                    <prismic-rich-text :field="people.name"/>
+                                                    <prismic-rich-text :field="people.department"/>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                    <ul class="blk-timeline__media__menu">
+                                        <li v-for="(timeline_item, index) in timeline_items" :key="'timeline_item-' + index">
+                                            <prismic-rich-text :field="timeline_item.data.title"/>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-5">
+                                <div class="blk-timeline__listing">
+                                    <!-- 1 ul. Quotes with appropirate bg as data attributes in javascript on change set the bg to the parent section -->
+                                    <ul class="blk-timeline__quote__listing">
+                                        <li v-for="(timeline_item, index) in timeline_items" :key="'timeline_item-' + index">
+                                            <prismic-rich-text :field="timeline_item.data.quote"/>
+                                            <prismic-rich-text :field="timeline_item.data.author"/>
+                                            <prismic-image :field="timeline_item.data.featured_background"/>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
       </template>
       <template v-else-if="slice.slice_type === 'featured_post'">
           

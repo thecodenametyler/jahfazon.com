@@ -13,6 +13,7 @@
     "autoprefixer": "^9.4.5",
     "axios": "^0.18.0",
     "browser-sync": "^2.26.3",
+    "codename-stackoverflow": "^1.0.0",
     "cssnano": "^4.1.8",
     "gulp": "^4.0.0",
     "gulp-eslint": "^5.0.0",
