@@ -74,6 +74,13 @@ $breakpoint-ipadpro-max: 1366px;
   font-style: normal;
 }
 @font-face {
+  font-family: 'swanse-bold';
+  src: url('../fonts/swanse-bold.eot');
+  src: url('../fonts/swanse-bold.eot?#iefix') format('embedded-opentype'), url('../fonts/swanse-bold.woff') format('woff'), url('../fonts/swanse-bold.ttf') format('truetype'), url('../fonts/swanse.svg#swanse-bold') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
   font-family: 'icomoon';
   src: url('../fonts/icomoon.eot?vx2yjj');
   src: url('../fonts/icomoon.eot?vx2yjj#iefix') format('embedded-opentype'), url('../fonts/icomoon.ttf?vx2yjj') format('truetype'), url('../fonts/icomoon.woff?vx2yjj') format('woff'), url('../fonts/icomoon.svg?vx2yjj#icomoon') format('svg');
@@ -855,30 +862,136 @@ h3, .h3 {
 }
 .blk-timeline__users {
   text-align: center;
-  width: 65px;
+  width: 100%;
+  max-width: 65px;
+  margin-right: 40px;
+}
+.blk-timeline__users li {
+  margin-bottom: 15px;
+}
+.blk-timeline__users li:last-child {
+  margin-bottom: 0;
 }
 .blk-timeline__users img {
   width: 60px;
   border-radius: 60px;
+  margin-bottom: 8px;
 }
 .blk-timeline__users h3,
 .blk-timeline__users h4,
 .blk-timeline__users h5,
 .blk-timeline__users h6 {
-  font-weight: 800;
+  font-family: 'swanse-bold', Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  font-size: 1rem;
+  line-height: 16px;
+  line-height: 1.1428571428571428rem;
+  opacity: 0.5;
+}
+.blk-timeline__users__department {
+  font-family: 'swanse-bold', Arial, Helvetica, sans-serif;
   font-size: 12px;
   font-size: 0.8571428571428571rem;
-  line-height: 12px;
-  line-height: 0.8571428571428571rem;
+  line-height: 14px;
+  line-height: 1rem;
+  opacity: 0.4;
+  display: block;
 }
 .blk-timeline__listing {
   display: flex;
 }
+.blk-timeline__media {
+  margin-right: 50px;
+}
+.blk-timeline__media p {
+  font-size: 16px;
+  font-size: 1.1428571428571428rem;
+  line-height: 24px;
+  line-height: 1.7142857142857142rem;
+}
 .blk-timeline__media__listing > li {
   display: flex;
   flex-direction: row-reverse;
-  margin-bottom: 15px;
+  margin-bottom: 40px;
 }
 .blk-timeline__media__listing > li:last-child {
   margin-bottom: 0;
+}
+.blk-timeline__media__menu {
+  position: relative;
+}
+.blk-timeline__media__menu h3,
+.blk-timeline__media__menu h4,
+.blk-timeline__media__menu h5,
+.blk-timeline__media__menu h6 {
+  font-size: 12px;
+  font-size: 0.8571428571428571rem;
+  line-height: 14px;
+  line-height: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin: 0;
+  padding-bottom: 34px;
+}
+.blk-timeline__media__menu li {
+  position: relative;
+}
+.blk-timeline__media__menu li > div {
+  margin-left: 10px;
+}
+.blk-timeline__media__menu li:before {
+  content: "";
+  display: block;
+  position: absolute;
+  height: 100%;
+  width: 2px;
+  background: #FFFFFF;
+}
+.blk-timeline__media__menu li:after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 15px;
+  left: -5px;
+  height: 10px;
+  width: 10px;
+  background: transparent;
+  transform: rotate(45deg);
+  border: 2px solid #FFFFFF;
+  border-top: transparent;
+  border-right: transparent;
+  background: #232323;
+}
+.blk-timeline__media__menu:before {
+  content: "";
+  display: block;
+  position: absolute;
+  height: 100%;
+  width: 2px;
+  background: rgba(255, 255, 255, 0.2);
+}
+.blk-timeline__quote__bg {
+  background-image: url("../img/tutorial/bb.gif");
+  background-position: center left;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.blk-timeline__quote__text p {
+  font-size: 50px;
+  font-size: 3.5714285714285716rem;
+  line-height: 60px;
+  line-height: 4.285714285714286rem;
+  font-family: 'venturi-bold', Arial, Helvetica, sans-serif;
+}
+.blk-timeline__quote__text p strong,
+.blk-timeline__quote__text p b {
+  border-bottom: 4px solid red;
+}
+.blk-timeline__quote__author {
+  font-size: 18px;
+  font-size: 1.2857142857142858rem;
+  line-height: 20px;
+  line-height: 1.4285714285714286rem;
+  font-family: 'swanse-bold', Arial, Helvetica, sans-serif;
+  color: rgba(255, 255, 255, 0.4);
 }

@@ -82,7 +82,7 @@
                 <div class="inview-content inview-full">
                     <div class="container">
                         <div class="row">
-                            <div class="col-7">
+                            <div class="col-lg-7 col-sm-12">
                                 <div class="blk-timeline__listing">
                                     <!-- 2 ul. 1 details. 1 menu -->
                                     <ul class="blk-timeline__media__listing">
@@ -95,7 +95,7 @@
                                                 <li v-for="(people, index) in timeline_item.data.people" :key="'reference-item-' + index">
                                                     <prismic-image :field="people.image"/>
                                                     <prismic-rich-text :field="people.name"/>
-                                                    <prismic-rich-text :field="people.department"/>
+                                                    <span class="blk-timeline__users__department">{{ $prismic.richTextAsPlain(people.department) }}</span>
                                                 </li>
                                             </ul>
                                         </li>
@@ -107,13 +107,17 @@
                                     </ul>
                                 </div>
                             </div>
-                            <div class="col-5">
-                                <div class="blk-timeline__listing">
+                            <div class="col-lg-5 col-sm-12">
+                                <!-- 
+                                <div class="blk-timeline__listing blk-timeline__quote__bg"> -->
+                                <div class="blk-timeline__listing ">
                                     <!-- 1 ul. Quotes with appropirate bg as data attributes in javascript on change set the bg to the parent section -->
                                     <ul class="blk-timeline__quote__listing">
-                                        <li v-for="(timeline_item, index) in timeline_items" :key="'timeline_item-' + index">
-                                            <prismic-rich-text :field="timeline_item.data.quote"/>
-                                            <prismic-rich-text :field="timeline_item.data.author"/>
+                                        <li v-for="(timeline_item, index) in timeline_items" :key="'timeline_item-' + index" class="">
+                                            <div class="blk-timeline__quote__text">
+                                                <prismic-rich-text :field="timeline_item.data.quote"/>
+                                            </div>
+                                            <span class="blk-timeline__quote__author">{{ $prismic.richTextAsPlain(timeline_item.data.author) }}</span>
                                             <prismic-image :field="timeline_item.data.featured_background"/>
                                         </li>
                                     </ul>

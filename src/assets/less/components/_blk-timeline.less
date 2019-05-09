@@ -20,29 +20,128 @@
     }
     &__users {
         text-align: center;
-        width: 65px;
+        width: 100%;
+        max-width: 65px;
+        margin-right: 40px;
+        li {
+            margin-bottom: 15px;
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
         img {
             width: 60px;
             border-radius: 60px;
+            margin-bottom: 8px;
         }
         h3, h4 ,h5 , h6 {
-            font-weight: 800;
+            font-family: @swansebold;
+            .font-size(14);
+            .rem-px(line-height,16);
+            opacity: 0.5;
+        }
+        &__department {
+            font-family: @swansebold;
             .font-size(12);
-            .rem-px(line-height,12);
+            .rem-px(line-height,14);
+            opacity: 0.4;
+            display: block;
         }
     }
     &__listing  {
         display: flex;
     }
     &__media {
+        margin-right: 50px;
+        p {
+            .font-size(16);
+            .rem-px(line-height,24);
+        }
         &__listing  {
             > li {
                 display: flex;
                 flex-direction: row-reverse;
-                margin-bottom: 15px;
+                margin-bottom: 40px;
                 &:last-child {
                     margin-bottom: 0;
                 }
+            }
+        }
+        &__menu {
+            position: relative;
+            h3, h4 ,h5 , h6 {
+                .font-size(12);
+                .rem-px(line-height,14);
+                text-transform: uppercase;
+                letter-spacing: 1px;
+                margin: 0;
+                padding-bottom: 34px;
+            }
+            li {
+                position: relative;
+                > div {
+                    margin-left: 10px;
+                }
+                &:before {
+                    content: "";
+                    display: block;
+                    position: absolute;
+                    height: 100%;
+                    width: 2px;
+                    background: @colWhite;
+                }
+                &:after {
+                    content: "";
+                    display: block;
+                    position: absolute;
+                    top: 15px;
+                    left: -5px;
+                    height: 10px;
+                    width: 10px;
+                    background: transparent;
+                    transform: rotate(45deg);
+                    border: 2px solid @colWhite;
+                    border-top: transparent;
+                    border-right: transparent;
+                    background: @bg-accent-1;
+                }
+            }
+            &:before {
+                content: "";
+                display: block;
+                position: absolute;
+                height: 100%;
+                width: 2px;
+                background: rgba(@colWhite, 0.2);
+            }
+        }
+    }
+    &__quote {
+        &__bg {
+            background-image: url("../img/tutorial/bb.gif");
+            background-position: center left;
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+        &__text {
+            p {
+                .font-size(50);
+                .rem-px(line-height,60);
+                font-family: @venturibold;
+                strong, b {
+                    border-bottom: 4px solid red;
+                }
+            }
+        }
+        &__author {
+            .font-size(18);
+            .rem-px(line-height,20);
+            font-family: @swansebold;
+            color: rgba(@colWhite, 0.4);
+        }
+        &__listing {
+            li {
+
             }
         }
     }
