@@ -970,11 +970,22 @@ h3, .h3 {
   width: 2px;
   background: rgba(255, 255, 255, 0.2);
 }
+.blk-timeline__quote__item {
+  padding: 190px 0;
+}
 .blk-timeline__quote__bg {
-  background-image: url("../img/tutorial/bb.gif");
-  background-position: center left;
-  background-size: cover;
+  background-image: url("../img/bg/quote_bg.png");
+  background-position: center center;
+  background-size: contain;
   background-repeat: no-repeat;
+  height: 100%;
+  width: 100%;
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  opacity: 0.1;
 }
 .blk-timeline__quote__text p {
   font-size: 50px;

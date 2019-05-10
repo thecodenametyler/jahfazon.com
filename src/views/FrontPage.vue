@@ -108,17 +108,15 @@
                                 </div>
                             </div>
                             <div class="col-lg-5 col-sm-12">
-                                <!-- 
-                                <div class="blk-timeline__listing blk-timeline__quote__bg"> -->
                                 <div class="blk-timeline__listing ">
                                     <!-- 1 ul. Quotes with appropirate bg as data attributes in javascript on change set the bg to the parent section -->
                                     <ul class="blk-timeline__quote__listing">
-                                        <li v-for="(timeline_item, index) in timeline_items" :key="'timeline_item-' + index" class="">
+                                        <li v-for="(timeline_item, index) in timeline_items" :key="'timeline_item-' + index" class="blk-timeline__quote__item">
                                             <div class="blk-timeline__quote__text">
                                                 <prismic-rich-text :field="timeline_item.data.quote"/>
                                             </div>
                                             <span class="blk-timeline__quote__author">{{ $prismic.richTextAsPlain(timeline_item.data.author) }}</span>
-                                            <prismic-image :field="timeline_item.data.featured_background"/>
+                                            <!-- <prismic-image :field="timeline_item.data.featured_background"/> -->
                                         </li>
                                     </ul>
                                 </div>
@@ -127,6 +125,8 @@
                     </div>
                 </div>
             </div>
+            
+            <div class="blk-timeline__quote__bg"></div>
         </section>
       </template>
       <template v-else-if="slice.slice_type === 'featured_post'">
