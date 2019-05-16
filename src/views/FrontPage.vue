@@ -93,10 +93,12 @@
                   <div class="col-lg-7 col-sm-12">
                     <div class="blk-timeline__listing">
                       <!-- 2 ul. 1 details. 1 menu -->
-                      <ul class="blk-timeline__media__listing">
+                      <ul class="blk-timeline__media__listing js-timeline-media-listing">
                         <li
                           v-for="(timeline_item, index) in timeline_items"
                           :key="'timeline_item-' + index"
+                          :class="index==0 ? 'js-timeline-media-listing-item active' : 'js-timeline-media-listing-item'"
+                          :data-item="index"
                         >
                           <div class="blk-timeline__media">
                             <prismic-rich-text :field="timeline_item.data.description"/>
@@ -116,10 +118,12 @@
                           </ul>
                         </li>
                       </ul>
-                      <ul class="blk-timeline__media__menu">
+                      <ul class="blk-timeline__media__menu js-timeline-media-menu">
                         <li
                           v-for="(timeline_item, index) in timeline_items"
                           :key="'timeline_item-' + index"
+                          :class="index==0 ? 'js-timeline-media-menu-item active' : 'js-timeline-media-menu-item'"
+                          :data-item="index"
                         >
                           <prismic-rich-text :field="timeline_item.data.title"/>
                         </li>
@@ -129,11 +133,11 @@
                   <div class="col-lg-5 col-sm-12">
                     <div class="blk-timeline__listing">
                       <!-- 1 ul. Quotes with appropirate bg as data attributes in javascript on change set the bg to the parent section -->
-                      <ul class="blk-timeline__quote__listing">
+                      <ul class="blk-timeline__quote__listing js-timeline-quote-slider">
                         <li
                           v-for="(timeline_item, index) in timeline_items"
                           :key="'timeline_item-' + index"
-                          class="blk-timeline__quote__item"
+                          class="blk-timeline__quote__item js-timeline-quote-slider--item"
                           :data-quote="timeline_item.data.featured_background.url"
                         >
                           <div class="blk-timeline__quote__text">
@@ -153,7 +157,7 @@
             </div>
           </div>
 
-          <div class="blk-timeline__quote__bg"></div>
+          <div class="blk-timeline__quote__bg js-timeline-quote-slider--bg"></div>
         </section>
       </template>
       <template v-else-if="slice.slice_type === 'featured_post'">
@@ -283,11 +287,47 @@ export default {
   },
   mounted: function() {
     $(document).ready(function() {
-      var test = setInterval(function() {
-        if ($(".blk-timeline__quote__listing").length > 0) {
-          clearInterval(test);
-          $(".blk-timeline__quote__listing").slick({
-            infinite: true
+      var timelineQuote = setInterval(function() {
+        if ($(".js-timeline-quote-slider").length > 0) {
+          clearInterval(timelineQuote);
+          var currentSlide = $('.js-timeline-quote-slider').find('.js-timeline-quote-slider--item')[0];
+          var quoteBg = $(currentSlide).data('quote');
+          $('.js-timeline-quote-slider--bg').css('background-image', 'url(' + quoteBg + ')');
+
+          $(".js-timeline-quote-slider").slick({
+            infinite: true,
+            fade: true,
+            arrows: false,
+            autoplay: false,
+            draggable: false
+          });
+          $(".js-timeline-quote-slider").on("afterChange", function(
+            event,
+            slick,
+            currentSlide,
+            nextSlide
+          ) {
+            var currentSlide = $(event.currentTarget).find('.slick-active');
+            var quoteBg = $(currentSlide).find('.js-timeline-quote-slider--item').data('quote');
+            $('.js-timeline-quote-slider--bg').css('background-image', 'url(' + quoteBg + ')');
+          });
+        }
+      }, 300);
+      
+      var timelineMedia = setInterval(function() {
+        if ($(".js-timeline-media-menu").length > 0) {
+          clearInterval(timelineMedia);
+          var mediaMenuItem = $('.js-timeline-media-menu-item');
+          var mediaItem = $('.js-timeline-media-listing-item');
+          var quoteSlider = $(".js-timeline-quote-slider");
+          mediaMenuItem.on('click', function(e) {
+            e.preventDefault();
+            mediaMenuItem.removeClass('active');
+            mediaItem.removeClass('active');
+            var currentItem = $(this).data('item');
+            $(this).addClass('active');
+            $('.js-timeline-media-listing-item[data-item="'+currentItem+'"]').addClass('active');
+            $(".js-timeline-quote-slider").slick('slickGoTo', parseInt(currentItem));
           });
         }
       }, 300);
